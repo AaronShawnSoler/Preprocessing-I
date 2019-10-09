@@ -5,6 +5,10 @@
 @font: 'Lato', sans-serif;
 @center: 0 auto;
 
+// colors
+@light-grey: #333;
+@dark-text: #aaa;
+
 // MIXINS *********************
 
 .vertical-spread {
@@ -15,7 +19,7 @@
 
 .section-heading {
 	padding: 8px;
-	background: #333;
+	background: @light-grey;
 }
 
 .spacing {
@@ -39,11 +43,11 @@ body {
 	background: #111;
 
 	p {
-		color: #aaa;
+		color: @dark-text;
 	}
 
 	li {
-		color: #aaa;
+		color: @dark-text;
 	}
 
 	h1,
@@ -117,7 +121,7 @@ nav {
 		}
 
 		h3 {
-			color: #aaa;
+			color: @dark-text;
 		}
 
 		@media only screen and (max-width: 768px) {
@@ -143,15 +147,11 @@ nav {
 	.info-titles {
 		text-align: right;
 		padding: 0 8px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		.vertical-spread();
 	}
 
 	.info {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		.vertical-spread();
 	}
 }
 
@@ -197,7 +197,7 @@ nav {
 
 		.item {
 			padding: 32px 0;
-			border-bottom: 2px solid #333;
+			border-bottom: 2px solid @light-grey;
 		}
 
 		.item-heading {
