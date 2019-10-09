@@ -1,136 +1,116 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+}
+.vertical-spread {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+* {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-/* Set every element's box-sizing to border-box */
-* {
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
 }
-html,
 body {
-  height: 100%;
+  background: #111;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #222;
+}
+nav {
+  background: #181818;
+  padding: 16px 0;
+}
+nav .nav-items {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  text-decoration: none;
+}
+.profile {
+  padding: 32px;
+  margin: 0 auto;
+  display: flex;
+}
+.profile img {
+  width: 15%;
+  height: auto;
+}
+.profile .profile-header {
+  padding: 0 16px;
+  flex-grow: 1;
+}
+.profile .info-titles {
+  text-align: right;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.profile .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.about-me {
+  padding: 0 32px;
+}
+.about-me p {
+  padding: 16px 0;
+}
+.resume {
+  display: flex;
+}
+.resume .resume-info {
+  width: 75%;
+  padding: 32px;
+}
+.resume .resume-info .resume-heading {
+  background: #333;
+  padding: 8px;
+}
+.resume .resume-info .employment,
+.resume .resume-info .education {
+  padding: 16px 0;
+}
+.resume .resume-info .item {
+  padding: 32px 0;
+}
+.resume .resume-info .item-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+.resume .resume-sidebar {
+  width: 25%;
+  padding: 32px;
+}
+.resume .resume-sidebar .skills-item h2 {
+  background: #333;
+  padding: 8px;
+}
+.resume .resume-sidebar .skills-item ul {
+  padding: 32px 0;
+  list-style-type: square;
+  list-style-position: inside;
+}
+footer {
+  padding: 16px 32px;
+  background: #181818;
+  text-align: center;
 }
