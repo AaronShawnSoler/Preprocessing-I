@@ -38,6 +38,11 @@ body p {
 body li {
   color: #aaa;
 }
+body h1,
+body h2,
+body h3 {
+  text-transform: capitalize;
+}
 .container {
   max-width: 1000px;
   margin: 0 auto;
