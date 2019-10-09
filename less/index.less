@@ -5,11 +5,27 @@
 @font: 'Lato', sans-serif;
 @center: 0 auto;
 
+// MIXINS *********************
+
 .vertical-spread {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
+
+.section-heading {
+	padding: 8px;
+	background: #333;
+}
+
+.spacing {
+	padding: 32px;
+	@media only screen and (max-width: 768px) {
+		padding: 16px;
+	}
+}
+
+// MIXINS *********************
 
 * {
 	margin: 0;
@@ -21,6 +37,14 @@
 
 body {
 	background: #111;
+
+	p {
+		color: #aaa;
+	}
+
+	li {
+		color: #aaa;
+	}
 }
 
 .container {
@@ -37,6 +61,10 @@ nav {
 		display: flex;
 		justify-content: space-around;
 		margin: @center;
+
+		@media only screen and (max-width: 1000px) {
+			width: 100%;
+		}
 	}
 
 	li {
@@ -49,18 +77,61 @@ nav {
 }
 
 .profile {
-	padding: 32px;
+	.spacing();
 	margin: @center;
 	display: flex;
+	flex-wrap: wrap;
+
+	@media only screen and (max-width: 1000px) {
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+	}
 
 	img {
-		width: 15%;
+		width: 20%;
 		height: auto;
+
+		@media only screen and (max-width: 768px) {
+			width: 150px;
+		}
 	}
 
 	.profile-header {
 		padding: 0 16px;
 		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		h1 {
+			font-size: 3rem;
+			letter-spacing: 0.5rem;
+			margin: 0;
+		}
+
+		h3 {
+			color: #aaa;
+		}
+
+		@media only screen and (max-width: 768px) {
+			flex-grow: 0;
+		}
+
+		@media only screen and (max-width: 1000px) {
+			text-align: center;
+			padding: 16px 0;
+		}
+	}
+
+	.contact-info {
+		display: flex;
+
+		@media only screen and (max-width: 768px) {
+			width: 100%;
+			justify-content: center;
+			padding: 16px 0;
+		}
 	}
 
 	.info-titles {
@@ -81,6 +152,10 @@ nav {
 .about-me {
 	padding: 0 32px;
 
+	@media only screen and (max-width: 768px) {
+		padding: 16px;
+	}
+
 	p {
 		padding: 16px 0;
 	}
@@ -89,22 +164,34 @@ nav {
 .resume {
 	display: flex;
 
+	@media only screen and (max-width: 768px) {
+		flex-direction: column-reverse;
+	}
+
 	.resume-info {
-		width: 75%;
-		padding: 32px;
+		width: 70%;
+		.spacing();
+
+		@media only screen and (max-width: 768px) {
+			width: 100%;
+		}
 
 		.resume-heading {
-			background: #333;
-			padding: 8px;
+			.section-heading();
 		}
 
 		.employment,
 		.education {
 			padding: 16px 0;
+
+			.item:last-child {
+				border: none;
+			}
 		}
 
 		.item {
 			padding: 32px 0;
+			border-bottom: 2px solid #333;
 		}
 
 		.item-heading {
@@ -112,17 +199,39 @@ nav {
 			align-items: baseline;
 			justify-content: space-between;
 			padding-bottom: 16px;
+
+			@media only screen and (max-width: 550px) {
+				flex-direction: column;
+			}
 		}
 	}
 
 	.resume-sidebar {
-		width: 25%;
-		padding: 32px;
+		width: 30%;
+		.spacing();
+
+		@media only screen and (max-width: 768px) {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		@media only screen and (max-width: 550px) {
+			flex-direction: column;
+			align-items: center;
+		}
 
 		.skills-item {
+			@media only screen and (max-width: 768px) {
+				width: 33%;
+			}
+
+			@media only screen and (max-width: 550px) {
+				width: 100%;
+			}
+
 			h2 {
-				background: #333;
-				padding: 8px;
+				.section-heading();
 			}
 
 			ul {
