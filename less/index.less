@@ -1,59 +1,256 @@
-// Is this working?
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+// MY CODE STARTS HERE
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+@font: 'Lato', sans-serif;
+@center: 0 auto;
+
+// colors
+@light-grey: #333;
+@dark-text: #aaa;
+
+// MIXINS *********************
+
+.vertical-spread() {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.section-heading() {
+	padding: 8px;
+	background: @light-grey;
+}
+
+.spacing() {
+	padding: 32px;
+	@media only screen and (max-width: 768px) {
+		padding: 16px;
+	}
+}
+
+// MIXINS *********************
+
+* {
 	margin: 0;
 	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+	box-sizing: border-box;
+	font-family: @font;
+	color: #fff;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
+
 body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+	background: #111;
+
+	p {
+		color: @dark-text;
+	}
+
+	li {
+		color: @dark-text;
+	}
+
+	h1,
+	h2,
+	h3 {
+		text-transform: capitalize;
+	}
 }
 
-/* Set every element's box-sizing to border-box */
-* {
-    box-sizing: border-box;
+.container {
+	max-width: 1000px;
+	margin: @center;
+	background: #222;
 }
 
-html, body {
-    height: 100%;
+nav {
+	background: #181818;
+	padding: 16px 0;
+	.nav-items {
+		width: 50%;
+		display: flex;
+		justify-content: space-around;
+		margin: @center;
+
+		@media only screen and (max-width: 1000px) {
+			width: 100%;
+		}
+	}
+
+	li {
+		display: inline-block;
+	}
+
+	a {
+		text-decoration: none;
+	}
 }
 
+.profile {
+	.spacing();
+	margin: @center;
+	display: flex;
+	flex-wrap: wrap;
+
+	@media only screen and (max-width: 1000px) {
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	img {
+		width: 20%;
+		height: auto;
+
+		@media only screen and (max-width: 768px) {
+			width: 150px;
+		}
+	}
+
+	.profile-header {
+		padding: 0 16px;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		h1 {
+			font-size: 3rem;
+			letter-spacing: 0.5rem;
+			margin: 0;
+		}
+
+		h3 {
+			color: @dark-text;
+		}
+
+		@media only screen and (max-width: 768px) {
+			flex-grow: 0;
+		}
+
+		@media only screen and (max-width: 1000px) {
+			text-align: center;
+			padding: 16px 0;
+		}
+	}
+
+	.contact-info {
+		display: flex;
+
+		@media only screen and (max-width: 768px) {
+			width: 100%;
+			justify-content: center;
+			padding: 16px 0;
+		}
+	}
+
+	.info-titles {
+		text-align: right;
+		padding: 0 8px;
+		.vertical-spread();
+	}
+
+	.info {
+		.vertical-spread();
+	}
+}
+
+.about-me {
+	padding: 0 32px;
+
+	@media only screen and (max-width: 768px) {
+		padding: 16px;
+	}
+
+	p {
+		padding: 16px 0;
+	}
+}
+
+.resume {
+	display: flex;
+
+	@media only screen and (max-width: 768px) {
+		flex-direction: column-reverse;
+	}
+
+	.resume-info {
+		width: 70%;
+		.spacing();
+
+		@media only screen and (max-width: 768px) {
+			width: 100%;
+		}
+
+		.resume-heading {
+			.section-heading();
+		}
+
+		.employment,
+		.education {
+			padding: 16px 0;
+
+			.item:last-child {
+				border: none;
+			}
+		}
+
+		.item {
+			padding: 32px 0;
+			border-bottom: 2px solid @light-grey;
+		}
+
+		.item-heading {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			padding-bottom: 16px;
+
+			@media only screen and (max-width: 550px) {
+				flex-direction: column;
+			}
+		}
+	}
+
+	.resume-sidebar {
+		width: 30%;
+		.spacing();
+
+		@media only screen and (max-width: 768px) {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		@media only screen and (max-width: 550px) {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.skills-item {
+			@media only screen and (max-width: 768px) {
+				width: 33%;
+			}
+
+			@media only screen and (max-width: 550px) {
+				width: 100%;
+			}
+
+			h2 {
+				.section-heading();
+			}
+
+			ul {
+				padding: 32px 0;
+				list-style-type: square;
+				list-style-position: inside;
+			}
+		}
+	}
+}
+
+footer {
+	padding: 16px 32px;
+	background: #181818;
+	text-align: center;
+}
